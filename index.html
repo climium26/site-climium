@@ -484,7 +484,83 @@
       }
     }
 
+
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-dropdown-menu {
+      display: none;
+      background: #000000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.28s ease;
+    }
+
+    .mobile-dropdown-menu.active {
+      max-height: 420px;
+    }
+
+    .mobile-dropdown-menu a {
+      display: block;
+      width: min(var(--max), 92%);
+      margin: 0 auto;
+      padding: 16px 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mobile-dropdown-menu a:hover {
+      color: #ffffff;
+    }
+
     @media (max-width: 1100px) {
+      .menu {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-dropdown-menu {
+        display: block;
+      }
+
       .hero-grid,
       .feature-grid,
       .journey-grid,
@@ -598,13 +674,27 @@
       <nav class="menu">
         <a href="/">Início</a>
         <a href="#solucoes">Soluções</a>
-        <a href="#instalacao">Instalação</a>
-        <a href="#higienizacao">Higienização</a>
+        <a href="#instalacao">Serviços</a>
         <a href="#sobre">Sobre</a>
         <a href="#recursos">Atendimento</a>
         <a href="#contato" class="menu-cta">Orçamento</a>
       </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+
+    <nav class="mobile-dropdown-menu" id="mobileMenu" aria-label="Menu mobile">
+      <a href="/">Início</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#instalacao">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#recursos">Atendimento</a>
+      <a href="#contato">Orçamento</a>
+    </nav>
   </header>
 
   <section class="hero">
@@ -924,6 +1014,24 @@
     const heroBg = document.querySelector('.hero-bg');
     const header = document.querySelector('.topbar');
     const isMobile = window.matchMedia('(max-width: 760px)');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('#mobileMenu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     function handleScroll() {
       const scrollY = window.scrollY;
