@@ -562,7 +562,70 @@
       border-bottom: 0;
     }
 
-    @media (max-width: 1100px) {
+    
+    .solutions-editorial {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      margin-top: 30px;
+    }
+
+    .solution-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 34px;
+    }
+
+    .solution-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .solution-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .solution-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #7a7a7a;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .solution-text h3 {
+      font-family: 'Exo 2', Arial, Helvetica, sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .solution-text p {
+      color: var(--muted);
+      max-width: 520px;
+      font-size: 1.04rem;
+    }
+
+    .solution-text a {
+      display: inline-flex;
+      margin-top: 22px;
+      font-weight: 700;
+    }
+
+
+@media (max-width: 1100px) {
       .menu {
         display: none;
       }
@@ -579,8 +642,17 @@
       .feature-grid,
       .journey-grid,
       .resource-grid,
-      .split {
+      .split,
+      .solution-block {
         grid-template-columns: 1fr;
+      }
+
+      .solution-block {
+        padding: 24px;
+      }
+
+      .solution-image img {
+        height: 280px;
       }
 
       .hero-image-wrap {
@@ -735,46 +807,68 @@
   </section>
 
   
+  
   <section id="solucoes">
     <div class="container">
       <div class="section-header">
-        <div class="kicker">Conheça as soluções</div>
-        <h2>Soluções em climatização para ambientes comerciais e residenciais.</h2>
+        <div class="kicker">Áreas de atuação</div>
+        <h2>Soluções desenvolvidas para diferentes ambientes e necessidades.</h2>
         <p>
-          Atuação em diferentes ambientes e necessidades, com serviços desenvolvidos para integrar desempenho, funcionalidade e confiabilidade.
+          Atuação em ambientes comerciais, residenciais e serviços técnicos em climatização.
         </p>
       </div>
 
-      <div class="feature-grid">
-        <article class="feature">
-          <img src="images/comercial.webp" loading="lazy" decoding="async" alt="Soluções comerciais" />
-          <div class="feature-content">
-            <h3>Soluções Comerciais</h3>
-            <p>Projetos de climatização para empresas, escritórios e ambientes corporativos com foco em desempenho e integração ao espaço.</p>
+      <div class="solutions-editorial">
+
+        <article class="solution-block">
+          <div class="solution-text">
+            <span class="solution-label">Corporativo</span>
+            <h3>Projetos de climatização para empresas e ambientes profissionais.</h3>
+            <p>
+              Soluções desenvolvidas para escritórios, empresas e ambientes corporativos com foco em integração, funcionalidade e desempenho operacional.
+            </p>
+            <a href="#contato">Saiba mais</a>
+          </div>
+
+          <div class="solution-image">
+            <img src="images/comercial.webp" loading="lazy" decoding="async" alt="Soluções comerciais" />
+          </div>
+        </article>
+
+        <article class="solution-block reverse">
+          <div class="solution-image">
+            <img src="images/residencial.webp" loading="lazy" decoding="async" alt="Soluções residenciais" />
+          </div>
+
+          <div class="solution-text">
+            <span class="solution-label">Residencial</span>
+            <h3>Soluções residenciais com integração ao ambiente.</h3>
+            <p>
+              Projetos desenvolvidos para unir conforto, funcionalidade e integração estética em ambientes residenciais.
+            </p>
             <a href="#contato">Saiba mais</a>
           </div>
         </article>
 
-        <article class="feature">
-          <img src="images/residencial.webp" loading="lazy" decoding="async" alt="Soluções residenciais" />
-          <div class="feature-content">
-            <h3>Soluções Residenciais</h3>
-            <p>Soluções residenciais desenvolvidas para unir conforto, funcionalidade e integração ao ambiente.</p>
+        <article class="solution-block">
+          <div class="solution-text">
+            <span class="solution-label">Serviços técnicos</span>
+            <h3>Instalação, higienização e serviços técnicos especializados.</h3>
+            <p>
+              Serviços executados com organização, atenção aos detalhes e foco na preservação e funcionamento adequado dos sistemas.
+            </p>
             <a href="#contato">Saiba mais</a>
+          </div>
+
+          <div class="solution-image">
+            <img src="images/servicos.webp" loading="lazy" decoding="async" alt="Serviços técnicos" />
           </div>
         </article>
 
-        <article class="feature">
-          <img src="images/servicos.webp" loading="lazy" decoding="async" alt="Manutenção e Higienização" />
-          <div class="feature-content">
-            <h3>Serviços Técnicos</h3>
-            <p>Instalação, higienização e serviços técnicos executados com organização e atenção aos detalhes.</p>
-            <a href="#contato">Saiba mais</a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
+
 
 <section class="dark-section" id="sobre">
     <div class="container">
