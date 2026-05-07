@@ -625,6 +625,29 @@
     }
 
 
+
+    .solution-block.solution-dark {
+      background: #050505;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .solution-block.solution-dark .solution-label {
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .solution-block.solution-dark h3 {
+      color: #ffffff;
+    }
+
+    .solution-block.solution-dark p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .solution-block.solution-dark a {
+      color: #ffffff;
+    }
+
+
 @media (max-width: 1100px) {
       .menu {
         display: none;
@@ -643,7 +666,8 @@
       .journey-grid,
       .resource-grid,
       .split,
-      .solution-block {
+      .solution-block,
+      .solution-block.reverse {
         grid-template-columns: 1fr;
       }
 
@@ -835,7 +859,7 @@
           </div>
         </article>
 
-        <article class="solution-block reverse">
+        <article class="solution-block solution-dark reverse">
           <div class="solution-image">
             <img src="images/residencial.webp" loading="lazy" decoding="async" alt="Soluções residenciais" />
           </div>
